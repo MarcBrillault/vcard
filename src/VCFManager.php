@@ -30,10 +30,14 @@ class VCFManager
         $this->manageElements();
     }
 
+    /**
+     * As other validations rely on testing the version,
+     * the version element MUST be the first one to be tested
+     */
     private function manageElements(): void
     {
         $this->elements = [
-            Version::class
+            Version::class, // Always first
         ];
     }
 
@@ -52,11 +56,19 @@ class VCFManager
                     $elementClass = new $element;
                     if ($elementClass->managesLine($line)) {
                         $elementClass->saveLine($vCard, $line);
+                        try {
+                            $elementClass->validate($vCard);
+                        } catch (ValidationException $e) {
+                            $vCard = null;
+                            break 2;
+                        }
                     }
                 }
             }
 
-            $vCards[] = $vCard;
+            if ($vCard !== null) {
+                $vCards[] = $vCard;
+            }
         }
 
         return $vCards;
