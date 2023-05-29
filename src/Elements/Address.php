@@ -3,18 +3,28 @@
 namespace Embryo\Vcard\Elements;
 
 use Embryo\Vcard\Elements\Element;
+use Embryo\Vcard\ValidationException;
+use Embryo\Vcard\vCard;
 
 class Address extends Element
 {
-    /** @var string */
-    const FIELD_NAME = 'ADR';
-
     public function getFieldName(): string
     {
-        return self::FIELD_NAME;
+        return 'ADR';
     }
 
+    /**
+     * @var vCard $vcard
+     */
     public function saveLine($vcard, string $line): void
+    {
+    }
+
+    /**
+     * @var vCard $vCard
+     * @throws ValidationException
+     */
+    public function validate($vCard): void
     {
     }
 }

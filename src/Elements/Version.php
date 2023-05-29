@@ -7,14 +7,11 @@ use Embryo\Vcard\vCard;
 
 class Version extends Element
 {
-    /** @var string */
-    const FIELD_NAME = 'VERSION';
-
     const MANAGED_VERSIONS = [2.1];
 
     public function getFieldName(): string
     {
-        return self::FIELD_NAME;
+        return 'VERSION';
     }
 
     /** @var vCard $vcard */
