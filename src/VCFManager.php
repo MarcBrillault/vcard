@@ -74,7 +74,10 @@ class VCFManager
         return $vCards;
     }
 
-    /** @return []string */
+    /**
+     * @TODO better split, keeping both BEGIN and END lines
+     * @return []string
+     */
     private function splitVcards(): array
     {
         $vCards = explode('BEGIN:VCARD', $this->vcf);
