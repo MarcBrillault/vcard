@@ -1,0 +1,21 @@
+{
+    "name": "embryo/vcard",
+    "description": "vCard object",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Embryo\\Vcard\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marc Brillault",
+            "email": "marc@brillault.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    }
+}
